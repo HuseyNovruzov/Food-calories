@@ -4,7 +4,7 @@
       <search v-on:searchRequested="handleSearch"></search>
       <div class="components-wrap">
         <foods :foods = foods v-on:handleAdd="addToCalorieList"></foods>
-        <calorie-list :selectedItem="selectedItem"></calorie-list>
+        <calorie-list :selectedItem="selectedItem" :type="type"></calorie-list>
       </div>
     </div>
   </div>
@@ -19,17 +19,20 @@ export default {
   components : { Foods, Search, CalorieList },
   data() {
         return {
-            foods : [],
-            selectedItem : [],
-            api_id : 'e8b348ff',
-            api_key : 'd09f21c1f0e3265da0718a274b4e6894'
+            foods: [],
+            selectedItem: [],
+            type: [],
+            api_id: 'e8b348ff',
+            api_key: 'd09f21c1f0e3265da0718a274b4e6894',
         }
     },
     methods : {
-      addToCalorieList(index){
+
+      addToCalorieList(index, response){
+        this.type.push(response);
         this.selectedItem.push(this.foods.hints[index]);
       },
-
+      
       handleSearch(query){
         this.doQuery(query);
       },
@@ -62,9 +65,19 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 5px;
+  margin: 5px;
 }
 a {
   color: #42b983;
+}
+.questionBox{
+  border-radius: 10px;
+  background: #1266F1;
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 </style>

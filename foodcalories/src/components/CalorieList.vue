@@ -1,17 +1,19 @@
 <template>
     <div class="selectedFoodWrap">
         <h2>Calculate Calories</h2>
-        <div class="selectedFoodsBox">
-            <ul class="selectedFoods">
-                <li v-for="item in selectedItem" v-bind:key="item">
-                    <img :src="item.food.image" class="food-images"/>
-                    <p class="title">{{ item.food.label }}</p>
-                    <div class="selector">
-                        <input type="number" size="10" class="number" disabled/>
-                    </div>
-                </li>
-            </ul>
-        </div>
+            <div class="selectedFoodsBox">
+                <ul class="selectedFoods">
+                    <li v-for="(item, index) in selectedItem" v-bind:key="index" >
+                        <img :src="item.food.image" class="food-images"/>
+                        <p class="title">{{ item.food.label }}</p>
+                        <div class="selector" >
+                            <input type="number" size="10" class="number" v-if="type[index]==='number'" />
+                            <input type="range" min="100" max="1000" value="1" v-else/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        
     </div>
 </template>
 
@@ -19,15 +21,7 @@
 
 export default {
     name: 'CalorieList',
-    props : ['selectedItem'],
-    
-    methods : {
-        showSliderValue(){
-            let slider = document.getElementById('sliderRange');
-            console.log(slider.value);
-
-        }
-    }
+    props: ['selectedItem', 'type'],
 }
 </script>
 
@@ -35,9 +29,15 @@ export default {
 .selectedFoodWrap{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 300px;
     padding: 10px;
+    border: 1px solid slategray;
 }
+.selectedFoodWrap .optionBox, .selectedFoodsBox{
+    margin-top: 5px;
+}
+
 .selectedFoodsBox{
     border-radius: 5px;
     width: 100%;
@@ -48,6 +48,7 @@ export default {
                  3px 3px 2px 0 rgba(0,0,0,0.2);
     background: rgb(255, 255, 255);
 }
+
 .selectedFoods{
     list-style: none;
     display: flex;
@@ -73,12 +74,20 @@ export default {
     width: 40%;
 }
 .number{
-    width: 20%;   
+    width: 20%; 
+    border: none;
+    outline: none;
+    border-bottom: 1px solid; 
 }
 .food-images{
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
-
+.optionBox{
+    width: 100%;
+}
+.optionBox select{
+    padding: 5px;
+}
 </style>

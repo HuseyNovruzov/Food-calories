@@ -1,25 +1,38 @@
 <template>
     <div class="foods-wrap">
         <h2>Foods</h2>
-        <div class="foods">
-            <ul class="foods-list">
-                <li v-for='(food, index) in foods.hints' v-bind:key="index">
-                    <img :src="food.food.image" class="food-images"/>
-                    <p>{{foods.text}}</p>
-                    <input type="button" value="Add to list" @click="addToCalorieList(index)"/>
-                </li>
-            </ul>
-        </div>
+        <form class="optionBox">
+            <label for="option">Choose method:</label>
+                <select id="option">
+                    <option name="option" value="number">Count</option>
+                    <option name="option" value="gram">Gram</option>
+                </select>
+        </form>
+            <div class="foods">
+                <ul class="foods-list">
+                    <li v-for='(food, index) in foods.hints' v-bind:key="index">
+                        <img :src="food.food.image" class="food-images"/>
+                        <p class="title">{{food.food.label}}</p>
+                        <input type="button" value="Add to list" @click="addToCalorieList(index)"/>
+                    </li>
+                </ul>
+            </div>
+        
     </div>
 </template>
 
 <script>
 export default {
-    name : 'Foods',
-    props : ['foods'],
-    methods : {
+    name: 'Foods',
+    props: ['foods'],
+    methods: {
+        getSelectedValue(){
+        let type = document.getElementById('option');
+        return type.value;
+      },
         addToCalorieList(index){
-            this.$emit('handleAdd', index);
+            let response = this.getSelectedValue();
+            this.$emit('handleAdd', index,response);
         }
     }
 }
@@ -32,8 +45,11 @@ export default {
 .foods-wrap{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 10px;
     width: 650px;
+    border: 1px solid;
+    border: 1px solid slateblue;
 }
 
 .foods{
@@ -54,6 +70,8 @@ export default {
     padding: 5px 10px;
 }
 .foods-list li{ 
+    width: 140px;
+    text-align: center;
     padding: 5px;
     margin: 2px;
     display: flex;
@@ -62,8 +80,9 @@ export default {
     align-items: center;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bold;
-    
+    font-size: 15px; 
 }
+
 .foods-list input{
     background-image: linear-gradient(to right, #02aab0, #00cdac);
     border: none;

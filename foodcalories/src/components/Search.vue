@@ -28,9 +28,10 @@ export default {
 .search{
     width: 300px;
     border-radius: 5px;
-    height: 30px;
+    height: 30px;   
     padding: 5px;
     border: 1px solid #42b983;
+    outline: none;
 }
 .search::placeholder{
     color: rgba(0, 0, 0, 1);

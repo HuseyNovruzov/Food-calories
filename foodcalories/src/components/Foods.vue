@@ -39,7 +39,7 @@ export default {
     justify-content: space-between;
     padding: 10px;
     width: 600px;
-    border: 2px solid slateblue;
+    /* border: 2px solid slateblue; */
 }
 
 .foods{

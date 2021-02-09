@@ -4,27 +4,27 @@
       <search v-on:searchRequested="handleSearch"></search>
       <div class="components-wrap">
         <foods :foods="foods" v-on:handleAdd="addToCalorieList"></foods>
-        <calorie-list :selectedItem="selectedItem" :DataInputs="DataInputs"></calorie-list>        
+        <calorie-list :selectedItem="selectedItem" :DataInputs="DataInputs"></calorie-list>      
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Foods from "./components/Foods.vue";
-import Search from "./components/Search.vue";
-import CalorieList from "./components/CalorieList.vue";
-import DisplayCalculation from "./components/DisplayCalculation.vue";
+import Foods from './components/Foods.vue';
+import Search from './components/Search.vue';
+import CalorieList from './components/CalorieList.vue';
+import DisplayCalculation from './components/DisplayCalculation.vue';
 export default {
-  name: "app",
+  name: 'app',
   components: { Foods, Search, CalorieList, DisplayCalculation },
   data() {
     return {
       foods: [],
       selectedItem: [],
       DataInputs: [],
-      api_id: "e8b348ff",
-      api_key: "d09f21c1f0e3265da0718a274b4e6894",
+      api_id: 'e8b348ff',
+      api_key: 'd09f21c1f0e3265da0718a274b4e6894',
     };
   },
   methods: {
@@ -47,7 +47,8 @@ export default {
           return data.json();
         })
         .then((data) => {
-          return (this.foods = data);
+          this.foods = data
+          return this.foods;
         });
     },
   },

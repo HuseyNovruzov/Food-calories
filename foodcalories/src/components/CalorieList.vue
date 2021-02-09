@@ -148,7 +148,7 @@ export default {
   flex-wrap: wrap;
   width: 620px;
   padding: 10px;
-  border: 2px solid springgreen;
+  /* border: 2px solid springgreen; */
 }
 
 h2{
@@ -323,13 +323,22 @@ h2{
 .chart{
   /* border: 1px solid burlywood; */
   margin-top: 3em;
+  box-shadow: -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+               2px 2px 2px 0 rgba(0, 0, 0, 0.2), 
+               3px 3px 2px 0 rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 .buttonBox{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 450px;
-  border: 1px solid;
+  box-shadow: -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+               2px 2px 2px 0 rgba(0, 0, 0, 0.2), 
+               3px 3px 2px 0 rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 .buttonBox input[type=button]{
   border: 1px solid #1684f9;

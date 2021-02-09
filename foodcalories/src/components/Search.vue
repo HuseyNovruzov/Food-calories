@@ -24,6 +24,7 @@ export default {
 <style>
 .searchBar{
     padding: 10px;
+    border: 1px solid;
 }
 .search{
     width: 300px;

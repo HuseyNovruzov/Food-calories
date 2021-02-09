@@ -4,11 +4,7 @@
       <search v-on:searchRequested="handleSearch"></search>
       <div class="components-wrap">
         <foods :foods="foods" v-on:handleAdd="addToCalorieList"></foods>
-        <calorie-list :selectedItem="selectedItem" :DataInputs="DataInputs"></calorie-list>
-        <div class="chart">
-          <h2>Properties</h2>
-          <display-calculation></display-calculation>
-        </div>
+        <calorie-list :selectedItem="selectedItem" :DataInputs="DataInputs"></calorie-list>        
       </div>
     </div>
   </div>
@@ -59,10 +55,7 @@ export default {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -75,20 +68,10 @@ export default {
 }
 .components-wrap {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   margin-top: 5px;
-  border: 1px solid salmon;
 }
-.chart{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 380px;
-  border: 1px solid;
-  justify-content: space-around;
-  align-items: center;
-}
+
 a {
   color: #42b983;
 }

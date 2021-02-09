@@ -3,19 +3,21 @@
 import { Doughnut } from 'vue-chartjs'
 export default {
     extends: Doughnut,
-    
+    props: ['kkal', 'protein', 'fat'],
     mounted(){
         this.renderChart({
-            labels: ['carb', 'calorie', 'protein'],
+            labels: [this.kkal + 'kkal', this.protein + 'protein', this.fat + 'fat'],
             datasets:[{
-                data: [10,30,69],
+                data: [this.kkal, this.protein, this.fat],
                 backgroundColor: [
-                    'red',
-                    'yellow',
-                    'springgreen'
-                ]
-            }]
-        }, this.options)
+                    '#1684f9',
+                    '#ffff50',
+                    '#8ffa10'
+                ],
+                
+            }],
+        }, 
+        this.options)
     }
         
 }

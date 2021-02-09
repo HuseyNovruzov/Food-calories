@@ -8,7 +8,7 @@
           <p>{{ food.food.label}}</p>
           <input
             type="button"
-            value="Add to list"
+            value="Select"
             @click="addToCalorieList(index)"
           />
         </li>
@@ -38,9 +38,8 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
-    width: 650px;
-    border: 1px solid;
-    border: 1px solid slateblue;
+    width: 600px;
+    border: 2px solid slateblue;
 }
 
 .foods{
@@ -75,10 +74,10 @@ export default {
 }
 
 .foods-list input{
-    background-image: linear-gradient(to right, #02aab0, #00cdac);
+    background: #1684f9;
     border: none;
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 7px;
+    padding: 7px 10px;
     color:aliceblue;
     font-weight: bold;
     box-shadow: 1px 3px 2px 0 rgb(235, 229, 229);

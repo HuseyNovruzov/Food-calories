@@ -38,7 +38,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
-    width: 600px;
+    width: 590px;
     /* border: 2px solid slateblue; */
 }
 

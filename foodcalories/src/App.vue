@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="wrapper">
+      <links></links>
       <search v-on:searchRequested="handleSearch"></search>
       <div class="components-wrap">
         <foods :foods="foods" v-on:handleAdd="addToCalorieList"></foods>
@@ -15,9 +16,10 @@ import Foods from './components/Foods.vue';
 import Search from './components/Search.vue';
 import CalorieList from './components/CalorieList.vue';
 import DisplayCalculation from './components/DisplayCalculation.vue';
+import Links from './components/Links.vue'
 export default {
   name: 'app',
-  components: { Foods, Search, CalorieList, DisplayCalculation },
+  components: { Foods, Search, CalorieList, DisplayCalculation, Links },
   data() {
     return {
       foods: [],
@@ -70,10 +72,11 @@ export default {
 .components-wrap {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5px;
+  margin-top: 0.5em;
 }
 
 a {
-  color: #42b983;
+  color: #1684f9;
+  text-decoration: none;
 }
 </style>

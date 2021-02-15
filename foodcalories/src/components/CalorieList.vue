@@ -80,7 +80,7 @@ export default {
       response: false
     };
   },
-  
+
   methods: {
     seeChanges() {
       let kkal = 0, protein = 0, fat = 0, quantity = 0, gram= 0, size = 0, type = '';

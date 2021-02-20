@@ -79,4 +79,8 @@ a {
   color: #1684f9;
   text-decoration: none;
 }
+.body-scroll-toggle {
+  overflow:hidden !important;
+  height: "100%" !important;
+}
 </style>

@@ -68,8 +68,10 @@
             <a href="#">Contact</a>
           </div>
           <div class="register-box">
-            <input type="button" value="Sign Up" class="sign-up" />
-            <input type="button" value="Log In" class="login" />
+            <router-link to="/account/register" class="sign-up">Sign Up</router-link>
+            <router-link to="/account/login" class="login">Log In</router-link>
+            <!-- <input type="button" value="Sign Up" class="sign-up" /> -->
+            <!-- <input type="button" value="Log In" class="login" /> -->
           </div>
         </div>
       </nav>
@@ -111,8 +113,9 @@
     </ul>
 
     <div class="registerBox">
-      <input type="button" value="Sign Up" class="signUp" />
-      <input type="button" value="Log In" class="logIn" />
+      <!-- <input type="button" value="Sign Up" class="signUp" /> -->
+      <router-link to="/account/register" class="signUp" >Sign Up</router-link>
+      <router-link to="/account/login" class="logIn" >Log In</router-link>
     </div>
   </div>
 </template>
@@ -602,7 +605,7 @@ export default {
   border-top: 1px solid rgba(61, 90, 254, 0.4);
   position: relative;
 }
-.register-box input {
+.register-box a {
   font: 15px "euclid_circular_bmedium", sans-serif;
   border-radius: 10px;
   color: #fff;
